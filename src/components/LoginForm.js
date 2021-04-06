@@ -3,10 +3,11 @@ import Card from './common/Card';
 import CardItem from './common/CardItem';
 import Input from './common/Input';
 import Button from './common/Button';
+import emailChanged from '../actions/index';
 
 class LoginForm extends Component {
   onEmailChange(text) {
-    
+
   }
 
   render() {
