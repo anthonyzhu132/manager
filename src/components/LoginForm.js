@@ -5,11 +5,15 @@ import Input from './common/Input';
 import Button from './common/Button';
 
 class LoginForm extends Component {
+  onEmailChange(text) {
+    
+  }
+
   render() {
     return (
       <Card>
         <CardItem>
-          <Input label="Email" placeholder="email@gmail.com"/>
+          <Input label="Email" placeholder="email@gmail.com" onChangeText={this.onEmailChange.bind(this)}/>
         </CardItem>
         <CardItem>
           <Input secureTextEntry label="password" placeholder="password"/>
