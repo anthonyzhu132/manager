@@ -3,11 +3,12 @@ import Card from './common/Card';
 import CardItem from './common/CardItem';
 import Input from './common/Input';
 import Button from './common/Button';
-import emailChanged from '../actions/index';
+import { emailChanged } from '../actions';
+import { connect } from 'react-redux';
 
 class LoginForm extends Component {
   onEmailChange(text) {
-
+    this.props.emailChanged(text);
   }
 
   render() {
@@ -29,4 +30,4 @@ class LoginForm extends Component {
   };
 };
 
-export default LoginForm;
+export default connect(nill, { emailChanged })(LoginForm);
