@@ -30,4 +30,10 @@ class LoginForm extends Component {
   };
 };
 
+const mapStateToProps = (statae) => {
+  return {
+    email: statae.auth.email
+  }
+};
+
 export default connect(nill, { emailChanged })(LoginForm);
