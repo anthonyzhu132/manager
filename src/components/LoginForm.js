@@ -15,10 +15,19 @@ class LoginForm extends Component {
     return (
       <Card>
         <CardItem>
-          <Input label="Email" placeholder="email@gmail.com" onChangeText={this.onEmailChange.bind(this)}/>
+          <Input 
+          label="Email" 
+          placeholder="email@gmail.com" 
+          onChangeText={this.onEmailChange.bind(this)} 
+          value={this.props.email} 
+          />
         </CardItem>
         <CardItem>
-          <Input secureTextEntry label="password" placeholder="password"/>
+          <Input 
+          secureTextEntry 
+          label="password" 
+          placeholder="password"
+          />
         </CardItem>
         <CardItem>
           <Button>
@@ -36,4 +45,4 @@ const mapStateToProps = (statae) => {
   }
 };
 
-export default connect(nill, { emailChanged })(LoginForm);
+export default connect(mapStateToProps, { emailChanged })(LoginForm);
