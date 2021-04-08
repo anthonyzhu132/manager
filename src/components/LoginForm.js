@@ -3,12 +3,16 @@ import Card from './common/Card';
 import CardItem from './common/CardItem';
 import Input from './common/Input';
 import Button from './common/Button';
-import { emailChanged } from '../actions';
+import { emailChanged, passwordChanged  } from '../actions';
 import { connect } from 'react-redux';
 
 class LoginForm extends Component {
   onEmailChange(text) {
     this.props.emailChanged(text);
+  }
+
+  onPasswordChange(text) {
+    this.props.passwordChanged(text);
   }
 
   render() {
@@ -27,6 +31,7 @@ class LoginForm extends Component {
           secureTextEntry 
           label="password" 
           placeholder="password"
+          onChangeText={this.onPasswordChange.bind(this)}
           />
         </CardItem>
         <CardItem>
