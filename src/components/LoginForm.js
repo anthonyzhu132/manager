@@ -32,6 +32,7 @@ class LoginForm extends Component {
           label="password" 
           placeholder="password"
           onChangeText={this.onPasswordChange.bind(this)}
+          value={this.props.password}
           />
         </CardItem>
         <CardItem>
@@ -44,10 +45,12 @@ class LoginForm extends Component {
   };
 };
 
-const mapStateToProps = (statae) => {
+const mapStateToProps = (state) => {
+  const { email, password} = state
   return {
-    email: statae.auth.email
+    email: email,
+    password: password
   }
 };
 
-export default connect(mapStateToProps, { emailChanged })(LoginForm);
+export default connect(mapStateToProps, { emailChanged, passwordChanged })(LoginForm);
