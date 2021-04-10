@@ -3,7 +3,7 @@ import Card from './common/Card';
 import CardItem from './common/CardItem';
 import Input from './common/Input';
 import Button from './common/Button';
-import { emailChanged, passwordChanged, loginUser  } from '../actions';
+import { emailChanged, passwordChanged, loginUser } from '../actions';
 import { connect } from 'react-redux';
 
 class LoginForm extends Component {
