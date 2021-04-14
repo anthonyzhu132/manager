@@ -40,6 +40,7 @@ class LoginForm extends Component {
     };
   };
 
+  //Helper function to decide whether or not to load spinner or button depending on loading status
   renderButton() {
     if(this.props.loading) {
       return <Spinner size="large"/>
