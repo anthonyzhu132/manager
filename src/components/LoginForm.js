@@ -7,20 +7,25 @@ import { emailChanged, passwordChanged, loginUser } from '../actions';
 import { connect } from 'react-redux';
 
 class LoginForm extends Component {
+
+  //Helper function to help keep state of text state for email
   onEmailChange(text) {
     this.props.emailChanged(text);
   }
 
+  //Helper function to help keep state of text state for password
   onPasswordChange(text) {
     this.props.passwordChanged(text);
   }
 
+  //Helper function to keep track of button state, for when button is pressed and what to do with email and password text fields
   onButtonPress() {
     const { email, password } = this.props
 
     this.props.loginUser({ email, password });
   }
 
+  //Helper function to render error message if there is one.
   renderError() { 
     if(this.props.error) {
       return (
