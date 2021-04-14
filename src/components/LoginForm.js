@@ -21,6 +21,18 @@ class LoginForm extends Component {
     this.props.loginUser({ email, password });
   }
 
+  renderError() { 
+    if(this.props.error) {
+      return (
+        <View style={{ backgroundColor: 'white'}}>
+          <Text style={styles.errorTextStyle}>
+            {this.props.error}
+          </Text>
+        </View>
+      )
+    };
+  };
+
   render() {
     return (
       <Card>
@@ -41,6 +53,9 @@ class LoginForm extends Component {
           value={this.props.password}
           />
         </CardItem>
+
+        {this.renderError()}
+
         <CardItem>
           <Button onPress={this.onButtonPress.bind(this)}>
             Login
@@ -52,11 +67,20 @@ class LoginForm extends Component {
 };
 
 const mapStateToProps = (state) => {
-  const { email, password} = state
+  const { email, password, error} = state
   return {
     email: email,
-    password: password
+    password: password,
+    error: error
   }
 };
+
+const styles = {
+  errorTextStyle: {
+    fontSize: 20,
+    alignSelf: 'center',
+    color: 'red'
+  }
+}
 
 export default connect(mapStateToProps, { emailChanged, passwordChanged, loginUser })(LoginForm);
