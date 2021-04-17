@@ -1,8 +1,11 @@
+import { connect } from 'react-redux';
+import { employeeUpdate } from '../actions';
 import React, { Component } from 'react';
 import Card from './common/Card';
 import CardItem from './common/CardItem';
 import Input from './common/Input';
 import Button from './common/Button';
+
 
 
 class EmployeeCreate extends Component {
@@ -32,4 +35,10 @@ class EmployeeCreate extends Component {
   };
 };
 
-export default EmployeeCreate;
+const mapStateToProps = (state) => {
+  const { name, phone, shift } = state.employeeForm;
+
+  return { name, phone, shift };
+};
+
+export default connect(null, { employeeUpdate })(EmployeeCreate);
