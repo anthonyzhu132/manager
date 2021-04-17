@@ -6,8 +6,6 @@ import CardItem from './common/CardItem';
 import Input from './common/Input';
 import Button from './common/Button';
 
-
-
 class EmployeeCreate extends Component {
   render() {
     return (
