@@ -5,6 +5,7 @@ import Card from './common/Card';
 import CardItem from './common/CardItem';
 import Input from './common/Input';
 import Button from './common/Button';
+import { Picker } from '@react-native-picker/picker';
 
 class EmployeeCreate extends Component {
   render() {
@@ -26,7 +27,17 @@ class EmployeeCreate extends Component {
           onChangeText={text => this.props.employeeUpdate({ prop: 'phone', value: text })}
           />
         </CardItem>
-        <CardItem></CardItem>
+        <CardItem>
+          <Picker>
+            <Picker.Item label="" value=""/>
+            <Picker.Item label="" value=""/>
+            <Picker.Item label="" value=""/>
+            <Picker.Item label="" value=""/>
+            <Picker.Item label="" value=""/>
+            <Picker.Item label="" value=""/>
+            <Picker.Item label="" value=""/>
+          </Picker>
+        </CardItem>
         <CardItem>
           <Button>
             Create
