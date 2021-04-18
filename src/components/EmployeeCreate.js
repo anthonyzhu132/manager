@@ -28,7 +28,7 @@ class EmployeeCreate extends Component {
           onChangeText={text => this.props.employeeUpdate({ prop: 'phone', value: text })}
           />
         </CardItem>
-        <CardItem>
+        <CardItem style={{ flexDirection: 'column' }}>
           <Text style={styles.pickerTextStyle}>
             Shift
           </Text>
