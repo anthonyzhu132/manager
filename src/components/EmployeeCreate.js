@@ -6,6 +6,7 @@ import CardItem from './common/CardItem';
 import Input from './common/Input';
 import Button from './common/Button';
 import { Picker } from '@react-native-picker/picker';
+import { Text } from 'react-native';
 
 class EmployeeCreate extends Component {
   render() {
@@ -28,6 +29,9 @@ class EmployeeCreate extends Component {
           />
         </CardItem>
         <CardItem>
+          <Text style={styles.pickerTextStyle}>
+            Shift
+          </Text>
           <Picker
             selectedValue={this.props.shift}
             onValueChange={day => this.props.employeeUpdate({ prop: 'shift', value: day })}
@@ -51,6 +55,13 @@ class EmployeeCreate extends Component {
     );
   };
 };
+
+const styles = {
+  pickerTextStyle: {
+    fontSize: 18, 
+    paddingLeft:20
+  }
+}
 
 const mapStateToProps = (state) => {
   const { name, phone, shift } = state.employeeForm;
