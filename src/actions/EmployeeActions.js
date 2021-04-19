@@ -1,4 +1,4 @@
-import { EMPLOYEE_UPDATE } from './types'
+import { EMPLOYEE_UPDATE,EMPLOYEE_CREATE } from './types'
 import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
 
@@ -14,10 +14,13 @@ export const employeeCreate = ({ name, phone, shift}) => {
   const { currentUser } = firebase.auth();
 
   //Using thunk, after process is complete, use Action to bring user back to EmployeeList after adding user
-  return () => {
+  return (dispatch) => {
     //Access current users employee path and push the information onto corresponding user
     firebase.database().ref(`/users/${currentUser.uid}/employees`)
       .push({ name, phone, shift })
-      .then(() => Actions.employeeList())
+      .then((dispatch) => {
+        dispatch({ type: EMPLOYEE_CREATE });
+        Actions.employeeList({ type: 'reset' });
+      });
   };
 };
