@@ -8,12 +8,19 @@ class EmployeeListItem extends Component {
 
     return (
       <CardItem>
-        <Text>
+        <Text style={styles.titleStyle} >
           {name}
         </Text>
       </CardItem>
     );
   };
 };
+
+const styles = {
+  titleStyle: {
+    fontSize: 18,
+    paddingLeft: 15
+  }
+}
 
 export default EmployeeListItem;
