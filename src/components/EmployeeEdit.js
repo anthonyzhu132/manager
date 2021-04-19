@@ -10,14 +10,15 @@ class EmployeeEdit extends Component {
   render() {
     return (
       <Card>
+        <EmployeeForm />
         <CardItem>
           <Button>
             Save Changes
           </Button>
         </CardItem>
       </Card>
-    )
-  }
-}
+    );
+  };
+};
 
-export default EmployeeEdit;
+export default connect()(EmployeeEdit);
