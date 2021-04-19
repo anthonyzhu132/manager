@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { Text, TouchableWithoutFeedback, View } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import CardItem from './common/CardItem';
 
 
 class EmployeeListItem extends Component {
 
   onRowPress() {
-
+    Actions.employeeCreate({ employee: this.props.employee });
   }
-  
+
   render() {
     const { name } = this.props.employee;
 
