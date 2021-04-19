@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import ListView from 'deprecated-react-native-listview';
 import { connect } from 'react-redux';
 import { employeesFetch } from '../actions';
+import _ from 'lodash';
 
 class EmployeeList extends Component {
 
@@ -40,4 +41,12 @@ class EmployeeList extends Component {
   }
 };
 
-export default connect(null, employeesFetch)(EmployeeList);
+const mapStateToProps = (state) => {
+  const employees = _.map(state.employees, (val, uid) => {
+     return { ...val, uid }
+  });
+
+  return { employees };
+};
+
+export default connect(mapStateToProps, employeesFetch)(EmployeeList);
