@@ -3,10 +3,8 @@ import { employeeUpdate, employeeCreate } from '../actions';
 import React, { Component } from 'react';
 import Card from './common/Card';
 import CardItem from './common/CardItem';
-import Input from './common/Input';
 import Button from './common/Button';
-import { Picker } from '@react-native-picker/picker';
-import { Text } from 'react-native';
+import EmployeeForm from './EmployeeForm';
 
 class EmployeeCreate extends Component {
 
@@ -19,10 +17,9 @@ class EmployeeCreate extends Component {
   render() {
     return (
       <Card>
+        <EmployeeForm {...this.props} />
         <CardItem>
-          <Button
-            onPress={this.onButtonPress.bind(this)}
-          >
+          <Button onPress={this.onButtonPress.bind(this)}>
             Create
           </Button>
         </CardItem>
