@@ -1,17 +1,27 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { Text, TouchableWithoutFeedback, View } from 'react-native';
 import CardItem from './common/CardItem';
 
+
 class EmployeeListItem extends Component {
+
+  onRowPress() {
+
+  }
+  
   render() {
     const { name } = this.props.employee;
 
     return (
-      <CardItem>
-        <Text style={styles.titleStyle} >
-          {name}
-        </Text>
-      </CardItem>
+      <TouchableWithoutFeedback onPress={this.onRowPress.bind(this)}>
+        <View>
+          <CardItem>
+            <Text style={styles.titleStyle} >
+              {name}
+            </Text>  
+          </CardItem>
+        </View>
+      </TouchableWithoutFeedback>
     );
   };
 };
