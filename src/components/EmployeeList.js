@@ -6,20 +6,23 @@ import { employeesFetch } from '../actions';
 
 class EmployeeList extends Component {
 
+  //Helper function to help create DataSource from the ListView
   createDataSource({ employees }) {
     const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
     });
 
-    this.DataSource = ds.cloneWithRwos(employees);
+    this.DataSource = ds.cloneWithRows(employees);
   }
 
+  //When Component first renders, try to fetch EmployeeList and call helper function to help create data soruce for the first time
   componentWillMount() {
     this.props.employeesFetch();
 
     this.createDataSource(this.props);
   };
 
+  //When there are new props, call ComponentWillReceiveProps with new props and call helper function to create new data source with new props
   componentWillReceiveProps(nextProps) {
     // nextProps are new props that are going to be used to render with
     // this.props are still old props before having information
