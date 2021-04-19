@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import ListView from 'deprecated-react-native-listview';
 import { connect } from 'react-redux';
 import { employeesFetch } from '../actions';
+import EmployeeListItem from './EmployeeListItem';
 import _ from 'lodash';
 
 class EmployeeList extends Component {
@@ -30,13 +31,17 @@ class EmployeeList extends Component {
     this.createDataSource(nextProps);
   }
 
+  renderRow(employee) {
+    return <EmployeeListItem employee={employee}/>
+  }
+
   render() {
     return (
-      <View>
-        <Text>
-          EmployeeList Test
-        </Text>
-      </View>
+      <ListView
+        enableEmptySections
+        DataSource={this.DataSource}
+        renderRow={this.renderRow}
+      />
    );
   }
 };
