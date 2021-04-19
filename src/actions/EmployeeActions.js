@@ -13,6 +13,7 @@ export const employeeCreate = ({ name, phone, shift}) => {
   //Grabs current user from firebase.auth
   const { currentUser } = firebase.auth();
 
+  //Using thunk, after process is complete, use Action to bring user back to EmployeeList after adding user
   return () => {
     //Access current users employee path and push the information onto corresponding user
     firebase.database().ref(`/users/${currentUser.uid}/employees`)
