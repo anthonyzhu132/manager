@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { connect } from 'react-redux';
-import { employeeUpdate, employeeSave } from '../actions';
+import { employeeUpdate, employeeSave, employeeDelete } from '../actions';
 import React, { Component } from 'react';
 import Card from './common/Card';
 import CardItem from './common/CardItem';
@@ -37,7 +37,9 @@ class EmployeeEdit extends Component {
   }
 
   onAccept() {
+    const { uid } = this.props.employee;
 
+    this.props.employeeDelete({ uid })
   }
 
   onDecline() {
@@ -80,4 +82,4 @@ const mapStateToProps = (state) => {
   return { name, phone, shift };
 }
 
-export default connect(mapStateToProps, { employeeUpdate, employeeSave })(EmployeeEdit);
+export default connect(mapStateToProps, { employeeUpdate, employeeSave, employeeDelete })(EmployeeEdit);
