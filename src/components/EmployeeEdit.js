@@ -6,6 +6,7 @@ import Card from './common/Card';
 import CardItem from './common/CardItem';
 import Button from './common/Button';
 import EmployeeForm from './EmployeeForm';
+import Confirm from './common/Confirm';
 import { Text } from 'react-native-communications';
 
 class EmployeeEdit extends Component {
@@ -43,6 +44,12 @@ class EmployeeEdit extends Component {
             Text Schedule
           </Button>
         </CardItem>
+
+      
+
+        <Confirm>
+          Are you sure you want to delete this?
+        </Confirm>
       </Card>
     );
   };
