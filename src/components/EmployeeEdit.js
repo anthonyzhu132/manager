@@ -7,6 +7,7 @@ import CardItem from './common/CardItem';
 import Button from './common/Button';
 import EmployeeForm from './EmployeeForm';
 import Confirm from './common/Confirm';
+import firebase from 'firebase';
 import { Text } from 'react-native-communications';
 
 class EmployeeEdit extends Component {
@@ -35,6 +36,14 @@ class EmployeeEdit extends Component {
     Text(phone, `You have your next shift on ${shift}`);
   }
 
+  onAccept() {
+
+  }
+
+  onDecline() {
+    this.setState({ showModal: false })
+  }
+
   render() {
     return (
       <Card>
@@ -57,9 +66,7 @@ class EmployeeEdit extends Component {
         </Button>
       </CardItem>
 
-        <Confirm
-          visible={this.state.showModal}
-        >
+        <Confirm visible={this.state.showModal} onAccept={this.onAccept} onDecline={this.onDecline}>
           Are you sure you want to delete this?
         </Confirm>
       </Card>
