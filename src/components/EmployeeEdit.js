@@ -10,6 +10,12 @@ import Confirm from './common/Confirm';
 import { Text } from 'react-native-communications';
 
 class EmployeeEdit extends Component {
+  state = { showModal: false }
+
+  showModalState() {
+    this.setState({ showModal: !this.state.showModal })
+  }
+
   componentWillMount() {
     //For each property in the employee prop that was passed in, update the employee object with the new values
     _.each(this.props,employee, (value, prop) => {
@@ -45,9 +51,15 @@ class EmployeeEdit extends Component {
           </Button>
         </CardItem>
 
-      
+      <CardItem>
+        <Button onPress={showModalState()}>
+          Fire Employee
+        </Button>
+      </CardItem>
 
-        <Confirm>
+        <Confirm
+          visible={this.state.showModal}
+        >
           Are you sure you want to delete this?
         </Confirm>
       </Card>
