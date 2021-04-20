@@ -3,9 +3,14 @@ import { Text, View, Modal } from 'react-native';
 import CardItem from './CardItem';
 import Button from './Button';
 
-const Confirm = ({ children }) => {
+const Confirm = ({ children, visible, onAccept, onDecline }) => {
   return (
-    <Modal>
+    <Modal
+      animationType="slide"
+      onRequestClose={() => {}}
+      transparent
+      visible={visible}
+    >
       <View>
         <CardItem>
           <Text>
